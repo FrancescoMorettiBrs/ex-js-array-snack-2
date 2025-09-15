@@ -46,18 +46,42 @@ const books = [
 ];
 
 // Snack 1 - Filtra e Modifica
-// Crea una funzione che somma due numeri.
-// Crea un array (longBooks) con i libri che hanno più di 300 pagine;
-// Creare un array (longBooksTitles) che contiene solo i titoli dei libri contenuti in longBooks.
-// Stampa in console ogni titolo nella console.
+console.log("SNACK 1");
 
+// Crea una funzione che somma due numeri.
+const somma = function (a, b) {
+  return console.log(a + b);
+};
+somma(10, 5);
+
+// Crea un array (longBooks) con i libri che hanno più di 300 pagine;
 const longBooks = books.filter((b) => b.pages > 300);
 console.log(longBooks);
 
+// Creare un array (longBooksTitles) che contiene solo i titoli dei libri contenuti in longBooks.
 const longBooksTitles = longBooks.map((b) => b.title);
 console.log(longBooksTitles);
 
-const allTitles = books.map((b) => b.title);
-console.log(allTitles);
+// Stampa in console ogni titolo nella console.
+const allTitles = books.map((b) => console.log(b.title));
 
+// Snack 2 - Il primo libro scontato
+console.log("SNACK 2");
+
+// Creare un array (availableBooks) che contiene tutti i libri disponibili.
+const availableBooks = books.filter((b) => b.available === true);
+console.log(availableBooks);
+
+// Crea un array (discountedBooks) con gli availableBooks, ciascuno con il prezzo scontato del 20% (mantieni lo stesso formato e arrotonda al centesimo)
+const discountedBooks = availableBooks.map((b) => {
+  return {
+    ...b,
+    price: parseFloat(b.price).toFixed(2) * 0.8,
+  };
+});
+console.log(discountedBooks);
+
+// Salva in una variabile (fullPricedBook) il primo elemento di discountedBooks che ha un prezzo intero (senza centesimi).
+const fullPricedBook = discountedBooks.find((b) => b.price % 1 === 0);
+console.log(fullPricedBook);
 
