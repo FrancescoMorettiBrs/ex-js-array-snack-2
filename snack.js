@@ -154,3 +154,30 @@ async function getBooks(ids) {
 getBooks(ids)
   .then((books) => console.log("Libri:", books))
   .catch((err) => console.error(err));
+
+// Snack 6 (Bonus) - Ordina i libri
+console.log("SNACK 6////////////");
+
+// Crea una variabile booleana (areThereAvailableBooks) per verificare se c’è almeno un libro disponibile.
+const areThereAvailableBooks = books.some((book) => book.available === true);
+console.log(areThereAvailableBooks);
+
+// Crea un array (booksByPrice) con gli elementi di books ordinati in base al prezzo (crescente).
+const booksByPrice = [...books].sort((a, b) => {
+  return parseFloat(a.price) - parseFloat(b.price);
+});
+
+console.log(booksByPrice);
+
+// Ordina l’array booksByPrice in base alla disponibilità (prima quelli disponibili), senza creare un nuovo array.
+
+const orderedByAvailability = booksByPrice.sort((a, b) => {
+  return b.available - a.available;
+});
+
+console.log(booksByPrice);
+
+// Snack 7 (Bonus) - Analizza i tagù
+// Usa reduce per creare un oggetto (tagCounts) che conta quante volte ogni tag viene usato tra i libri.
+
+
