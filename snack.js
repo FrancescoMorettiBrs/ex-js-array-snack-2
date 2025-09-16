@@ -113,6 +113,25 @@ const sortedAuthors = [...authors].sort((a, b) => {
 console.log(sortedAuthors);
 
 // Snack 4 - Calcola l’età media
+console.log("SNACK 4 ///////////");
 // Creare un array (ages) che contiene le età degli autori dei libri.
+
+const age = authors.map((a) => a.age);
+console.log(age);
+
 // Calcola la somma delle età (agesSum) usando reduce.
+
+const agesSum = age.reduce((acc, num) => {
+  return acc + num;
+}, 0);
+
+console.log("La somma delle età è:", agesSum);
+
 // Stampa in console l’età media degli autori dei libri.
+
+const mediaEtà = agesSum / authors.length;
+console.log(mediaEtà);
+
+// Snack 5 (Bonus) - Raccogli i libri
+// Usando la l'API http://localhost:3333/books/{id} usa la combinazione di .map() e Promise.all(), per creare una funzione (getBooks) che a partire da un array di id (ids), ritorna una promise che risolve un array di libri (books).
+// Testala con l’array [2, 13, 7, 21, 19] .
