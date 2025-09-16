@@ -46,7 +46,7 @@ const books = [
 ];
 
 // Snack 1 - Filtra e Modifica
-console.log("SNACK 1");
+console.log("SNACK 1////////////");
 
 // Crea una funzione che somma due numeri.
 const somma = function (a, b) {
@@ -66,7 +66,7 @@ console.log(longBooksTitles);
 const allTitles = books.map((b) => console.log(b.title));
 
 // Snack 2 - Il primo libro scontato
-console.log("SNACK 2");
+console.log("SNACK 2////////////");
 
 // Creare un array (availableBooks) che contiene tutti i libri disponibili.
 const availableBooks = books.filter((b) => b.available === true);
@@ -85,3 +85,34 @@ console.log(discountedBooks);
 const fullPricedBook = discountedBooks.find((b) => b.price % 1 === 0);
 console.log(fullPricedBook);
 
+// Snack 3 - Ordinare gli Autori
+console.log("SNACK 3////////////");
+
+// Creare un array (authors) che contiene gli autori dei libri.
+const authors = books.map((b) => b.author);
+console.log(authors);
+
+// Crea una variabile booleana (areAuthorsAdults) per verificare se gli autori sono tutti maggiorenni.
+
+const areAuthorsAdult = authors.every((b) => b.age >= 18);
+console.log(areAuthorsAdult);
+
+// Ordina l’array authors in base all’età, senza creare un nuovo array.
+
+const orderByAge = authors.sort((a, b) => {
+  return a.age - b.age;
+});
+console.log(orderByAge);
+
+// (se areAuthorsAdult è true, ordina in ordine crescente, altrimenti in ordine decrescente)
+
+const sortedAuthors = [...authors].sort((a, b) => {
+  return areAuthorsAdult ? a.age - b.age : b.age - a.age;
+});
+
+console.log(sortedAuthors);
+
+// Snack 4 - Calcola l’età media
+// Creare un array (ages) che contiene le età degli autori dei libri.
+// Calcola la somma delle età (agesSum) usando reduce.
+// Stampa in console l’età media degli autori dei libri.
